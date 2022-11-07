@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <a *ngIf="isAdmin" mat-list-item routerLink="/administration">
+    <mat-icon>insert_chart_outlined</mat-icon>
+    <span class="nav-link">Administration</span>
+  </a>
+
+  <a *ngIf="isAdmin" mat-list-item routerLink="/sales">
+    <mat-icon> bar_chart</mat-icon>
+    <span class="nav-link">Sales</span>
+  </a>
+
+  <a mat-list-item routerLink="/courses">
+    <mat-icon>add_shopping_cart</mat-icon>
+    <span class="nav-link">Shopping</span>
+  </a>
+
+  <a mat-list-item routerLink="/cart">
+    <mat-icon>shopping_cart</mat-icon>
+    <span class="nav-link">My Car</span>
+  </a>
+</mat-nav-list>

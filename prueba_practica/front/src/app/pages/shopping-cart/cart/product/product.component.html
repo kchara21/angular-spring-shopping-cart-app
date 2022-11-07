@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    {{ product.title }}
+  </mat-card-title>
+
+  <mat-card-content>
+    <p>$ {{ product.price }}</p>
+  </mat-card-content>
+
+  <img mat-card-image src="{{ product.image }}" alt="{{ product.title }}" />
+
+  <mat-card-footer>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="onOpenModalProduct(product)"
+    >
+      View More
+    </button>
+  </mat-card-footer>
+</mat-card>

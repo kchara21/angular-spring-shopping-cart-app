@@ -1,0 +1,47 @@
+<div class="tableScroll">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Client Column -->
+    <ng-container matColumnDef="client">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by client"
+      >
+        Client
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.client }}</td>
+    </ng-container>
+
+    <!-- Order Column -->
+    <ng-container matColumnDef="order">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by order"
+      >
+        Order
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.orderNumber }}</td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by date"
+      >
+        Date
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ moment(element.date).format("yyyy-MM-DD HH:mm:ss a") }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

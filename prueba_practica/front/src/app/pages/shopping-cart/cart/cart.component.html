@@ -1,0 +1,19 @@
+<div fxFlex fxLayout="column">
+  <mat-form-field class="filter" appearance="fill">
+    <mat-label>Filter products</mat-label>
+    <input matInput [(ngModel)]="term" />
+  </mat-form-field>
+  <div fxLayout="row wrap">
+    <div
+      fxFlex="25"
+      fxFlex.md="33"
+      fxFlex.sm="50"
+      fxFlex.xs="100"
+      fxLayout="column"
+      *ngFor="let product of allProducts | filter: term"
+      style="padding: 25px"
+    >
+      <app-product [product]="product"></app-product>
+    </div>
+  </div>
+</div>

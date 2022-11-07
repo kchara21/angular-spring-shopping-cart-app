@@ -1,0 +1,93 @@
+<h2 mat-dialog-title style="text-align: center; font-size: 3rem">
+  {{ data?.title }}
+</h2>
+
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-title> Resumen </mat-card-title>
+
+    <mat-card-content>
+      <p>SUBTOTAL: ${{ subtotal }}</p>
+      <p>TAXES: ${{ taxe }}</p>
+      <p>TOTAL: ${{ total }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="modal-form">
+    <form [formGroup]="clientForm.baseForm">
+      <mat-form-field class="full-width-input">
+        <input
+          formControlName="client"
+          matInput
+          placeholder="client"
+          required
+        />
+        <mat-error *ngIf="checkField('client')">
+          {{ clientForm.errorMessage }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width-input">
+        <input
+          formControlName="direction"
+          matInput
+          placeholder="direction"
+          required
+        />
+        <mat-error *ngIf="checkField('direction')">
+          {{ clientForm.errorMessage }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width-input">
+        <input
+          formControlName="facturation_name"
+          matInput
+          placeholder="Facturation name"
+          required
+        />
+        <mat-error *ngIf="checkField('facturation_name')">
+          {{ clientForm.errorMessage }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width-input">
+        <input
+          formControlName="facturation_direction"
+          matInput
+          placeholder="Facturation direction"
+          required
+        />
+        <mat-error *ngIf="checkField('facturation_direction')">
+          {{ clientForm.errorMessage }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width-input separator">
+        <mat-label>Payment Method</mat-label>
+        <mat-select formControlName="paymentMethod" required>
+          <mat-option *ngFor="let method of paymentMethod" [value]="method">{{
+            method
+          }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="checkField('paymentMethod')">
+          {{ clientForm.errorMessage }}
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    [disabled]="clientForm.baseForm.invalid"
+    mat-raised-button
+    [mat-dialog-close]="true"
+    color="primary"
+    (click)="onBuyProduct()"
+    ckdFocusInitial
+  >
+    Process
+  </button>
+</mat-dialog-actions>
